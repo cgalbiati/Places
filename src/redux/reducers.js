@@ -1,4 +1,4 @@
-import './actions';
+import {ADD_PLAYER, START_REQ, SET_INITIAL_STATE, REQ_SUCCESS, REQ_FAIL } from './actions';
 
 export function playersReducer(state=[], action){
   switch(action.type){

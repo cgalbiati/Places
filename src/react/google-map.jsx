@@ -30,4 +30,11 @@ const GoogleMap = React.createClass({
     }
 });
 
-export default GoogleMap;
+const test = React.createClass({
+    render: function (){
+        return <div className='map'>Map</div>
+    }
+})
+
+// export default GoogleMap;
+export default test;

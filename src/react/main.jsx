@@ -1,12 +1,16 @@
 import React from 'react';
-// import GMap from './google-map'
+import GMap from './google-map.jsx';
 import * as actionCreators from '../redux/actions';
 
 
 const Main = React.createClass({
   render: function(){
     return (
-      <div>hi</div>
+      <div>
+        <h3>hooooooo</h3>
+        <div> boo</div>
+        <GMap />
+      </div>
     )
   }
 })
