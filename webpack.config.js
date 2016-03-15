@@ -5,12 +5,13 @@ module.exports = {
   entry: [
     'babel-polyfill',
     // './src/styles/main.scss',
+    'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './src/main'
   ],
   output: {
       // path: path.resolve(__dirname, "build"),
-      publicPath: '/',
+      publicPath: '/assets',
       filename: 'bundle.js'
   },
   devtool: 'source-map',
@@ -39,9 +40,10 @@ module.exports = {
       // compile scss to css
       {
         test: /\.scss$/,
-        include: path.join(__dirname, 'src'),
+        include: path.join(__dirname, 'src/scss'),
         loader: "style!css!autoprefixer!scss"
-      }
+      },
+      // { test: /\.css$/, loader: "style!css" }
     ]
   },
   devServer: {
@@ -49,3 +51,14 @@ module.exports = {
   },
   debug: true
 };
+
+
+
+function getEntrySources(sources) {
+    if (process.env.NODE_ENV !== 'production') {
+        sources.push('webpack-dev-server/client?http://localhost:8080');
+        sources.push('webpack/hot/only-dev-server');
+    }
+
+    return sources;
+}
